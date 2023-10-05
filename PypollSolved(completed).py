@@ -38,7 +38,7 @@ with open(fh) as csv_file:
         candidate_name = row[2]
     
     
-    #count all individual votes
+    #count all individual votes by setting coditions
         if candidate_name ==  'Charles Casper Stockham':
             vote_count_Charles += 1           
             
@@ -67,13 +67,15 @@ with open(fh) as csv_file:
             count3 = count2 + 1                 #count every instance
             
        ###Prints resutls in desired format
-print(f'\nElection Results \n------------------------------------\nTotal votes: {count}\n------------------------------------\n')
-print(f'Charles Casper Stockham:  {int(c_percent)}%  ({vote_count_Charles})\n  ')
-print(f'Diana DeGette:  {int(d_percent)}%  ({vote_count_Diana})\n  ')
-print(f'Raymon Anthony Doane:  {int(r_percent)}%  ({vote_count_Raymon})\n  ')
-print("------------------------------------\n")
-print("Winner: Diana DeGette\n")
-print("------------------------------------\n")
+
+with open('Pypolltxt.txt', 'a') as f:       
+    print(f'\nElection Results \n------------------------------------\nTotal votes: {count}\n------------------------------------\n', file=f)
+    print(f'Charles Casper Stockham:  {int(c_percent)}%  ({vote_count_Charles})\n', file=f)
+    print(f'Diana DeGette:  {int(d_percent)}%  ({vote_count_Diana})\n', file=f)
+    print(f'Raymon Anthony Doane:  {int(r_percent)}%  ({vote_count_Raymon})\n', file=f)
+    print("------------------------------------\n", file=f)
+    print("Winner: Diana DeGette\n", file=f)
+    print("------------------------------------\n", file=f)
 
 #####################################################################################################################################
 #####################################################################################################################################
